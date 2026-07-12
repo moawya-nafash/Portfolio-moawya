@@ -1,0 +1,702 @@
+/*--------------------------------------------------------------
+# Portfolio Enhancements - Premium Design Overhaul
+# Author: Moawya Nafash Portfolio Enhancement
+# Version: 2.0
+--------------------------------------------------------------*/
+
+/* ============================================================
+   1. ENHANCED COLOR SYSTEM & CSS VARIABLES
+   ============================================================ */
+:root {
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-accent: linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #a855f7 100%);
+  --gradient-hero: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 27, 75, 0.75) 50%, rgba(88, 28, 135, 0.65) 100%);
+  --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  --glow-primary: 0 0 20px rgba(102, 126, 234, 0.3);
+  --glow-accent: 0 0 30px rgba(102, 126, 234, 0.15);
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-strong: 0 16px 48px rgba(0, 0, 0, 0.15);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================================
+   2. ENHANCED GLOBAL STYLES
+   ============================================================ */
+
+/* Smoother scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #667eea, #764ba2);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #764ba2, #667eea);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: inherit;
+}
+
+/* ============================================================
+   3. ENHANCED HEADER / SIDEBAR
+   ============================================================ */
+.header {
+  background: linear-gradient(180deg, #040b14 0%, #0a1628 100%) !important;
+  border-right: 1px solid rgba(102, 126, 234, 0.15) !important;
+}
+
+.header .profile-img img {
+  border: 3px solid rgba(102, 126, 234, 0.4) !important;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.2), 0 0 40px rgba(102, 126, 234, 0.1);
+  animation: profileGlow 4s ease-in-out infinite alternate;
+  transition: var(--transition-smooth);
+}
+
+.header .profile-img img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.4), 0 0 60px rgba(102, 126, 234, 0.2);
+}
+
+@keyframes profileGlow {
+  0% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.2), 0 0 40px rgba(102, 126, 234, 0.1); }
+  100% { box-shadow: 0 0 25px rgba(118, 75, 162, 0.3), 0 0 50px rgba(118, 75, 162, 0.15); }
+}
+
+.header .logo h1 {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced Nav Links */
+.navmenu a {
+  border-radius: var(--radius-sm);
+  margin: 2px 0;
+  transition: var(--transition-smooth) !important;
+}
+
+.navmenu a:hover {
+  background: rgba(102, 126, 234, 0.08);
+}
+
+.navmenu .active {
+  background: rgba(102, 126, 234, 0.12) !important;
+  border-right: 3px solid #667eea;
+}
+
+/* Enhanced Social Links */
+.header .social-links a {
+  transition: var(--transition-bounce) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.header .social-links a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+}
+
+.header .social-links a:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: var(--glow-primary);
+}
+
+.header .social-links a:hover::before {
+  opacity: 1;
+}
+
+.header .social-links a:hover i {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   4. ENHANCED HERO SECTION
+   ============================================================ */
+.home::before {
+  background: var(--gradient-hero) !important;
+}
+
+.home .container {
+  text-align: center;
+}
+
+.home h2 {
+  font-weight: 800 !important;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease-out;
+}
+
+.home p {
+  font-weight: 300;
+  letter-spacing: 1px;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.home p span {
+  border-bottom: 3px solid #667eea !important;
+  padding-bottom: 2px;
+}
+
+/* CTA Buttons Container */
+.hero-cta {
+  margin-top: 35px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.hero-cta .btn-primary-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: var(--gradient-primary);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--nav-font);
+  text-decoration: none;
+  transition: var(--transition-bounce);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  cursor: pointer;
+}
+
+.hero-cta .btn-primary-cta:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+  color: #fff;
+}
+
+.hero-cta .btn-secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--nav-font);
+  text-decoration: none;
+  transition: var(--transition-bounce);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.hero-cta .btn-secondary-cta:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.15);
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-cta .btn-primary-cta,
+  .hero-cta .btn-secondary-cta {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+}
+
+/* ============================================================
+   5. ENHANCED SECTION TITLES
+   ============================================================ */
+.section-title h2 {
+  font-size: 36px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.5px;
+}
+
+.section-title h2::after {
+  height: 4px !important;
+  width: 60px !important;
+  background: var(--gradient-primary) !important;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   6. ENHANCED ABOUT SECTION
+   ============================================================ */
+.about .content h2 {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about .content ul li {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-smooth);
+  border: 1px solid transparent;
+}
+
+.about .content ul li:hover {
+  background: rgba(102, 126, 234, 0.04);
+  border-color: rgba(102, 126, 234, 0.1);
+  transform: translateX(4px);
+}
+
+.about .content ul i {
+  color: #667eea !important;
+}
+
+/* ============================================================
+   7. ENHANCED SKILLS SECTION
+   ============================================================ */
+.skills-category h3 {
+  color: #2c3e50 !important;
+  font-size: 1.3rem;
+  font-weight: 700 !important;
+  border-bottom: 3px solid transparent !important;
+  border-image: var(--gradient-primary) 1 !important;
+  padding-bottom: 12px !important;
+}
+
+.skill-badge {
+  background: var(--gradient-primary) !important;
+  color: white !important;
+  padding: 10px 22px !important;
+  border-radius: 50px !important;
+  font-size: 0.9rem !important;
+  font-weight: 500;
+  transition: var(--transition-bounce) !important;
+  box-shadow: 0 3px 12px rgba(102, 126, 234, 0.25) !important;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+  border-radius: 50px;
+}
+
+.skill-badge:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.45) !important;
+}
+
+/* ============================================================
+   8. ENHANCED RESUME SECTION - TIMELINE
+   ============================================================ */
+.resume .resume-item {
+  border-left: 3px solid transparent !important;
+  border-image: var(--gradient-primary) 1 !important;
+  padding: 5px 0 20px 25px !important;
+  transition: var(--transition-smooth);
+}
+
+.resume .resume-item:hover {
+  background: rgba(102, 126, 234, 0.03);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.resume .resume-item::before {
+  width: 14px !important;
+  height: 14px !important;
+  left: -9px !important;
+  border: 3px solid #667eea !important;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+  transition: var(--transition-smooth);
+}
+
+.resume .resume-item:hover::before {
+  background: #667eea !important;
+  box-shadow: 0 0 0 6px rgba(102, 126, 234, 0.2), var(--glow-primary);
+}
+
+.resume .resume-item h4 {
+  color: var(--heading-color) !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+}
+
+.resume .resume-item h5 {
+  background: var(--gradient-primary);
+  color: #fff;
+  border-radius: 50px;
+  padding: 4px 16px !important;
+  font-size: 13px !important;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.resume .resume-title {
+  font-size: 24px !important;
+  position: relative;
+  padding-left: 15px;
+}
+
+.resume .resume-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 4px;
+  height: 24px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+/* ============================================================
+   9. ENHANCED PORTFOLIO SECTION
+   ============================================================ */
+.portfolio .portfolio-filters li {
+  padding: 8px 20px !important;
+  border-radius: 50px;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  transition: var(--transition-bounce) !important;
+  border: 1px solid transparent;
+}
+
+.portfolio .portfolio-filters li:hover {
+  background: rgba(102, 126, 234, 0.08);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+.portfolio .portfolio-filters li.filter-active {
+  background: var(--gradient-primary) !important;
+  color: #fff !important;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.35);
+}
+
+.portfolio .portfolio-content {
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.portfolio .portfolio-content:hover {
+  box-shadow: var(--shadow-strong) !important;
+  transform: translateY(-8px);
+}
+
+.portfolio .portfolio-content .portfolio-info {
+  border-radius: var(--radius-lg) !important;
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.95) 100%) !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px !important;
+}
+
+.portfolio .portfolio-content .portfolio-info h4 {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  background: var(--gradient-primary) !important;
+  border-radius: var(--radius-sm);
+  padding: 6px 14px !important;
+  margin-bottom: 8px;
+}
+
+.portfolio .portfolio-content .portfolio-info p {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  text-align: left !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+.portfolio .portfolio-content:hover img {
+  transform: scale(1.08) !important;
+}
+
+/* Portfolio Info Section (inside card) */
+.portfolio-item .portfolio-info {
+  padding: 20px !important;
+}
+
+.portfolio-item .portfolio-info h4 {
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   10. ENHANCED CONTACT SECTION
+   ============================================================ */
+.contact .info-item {
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  transition: var(--transition-smooth);
+  border: 1px solid transparent;
+  background: var(--surface-color);
+}
+
+.contact .info-item:hover {
+  border-color: rgba(102, 126, 234, 0.15);
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-4px);
+}
+
+.contact .info-item i {
+  background: var(--gradient-primary) !important;
+  color: #fff !important;
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 22px !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.contact .info-item:hover i {
+  background: var(--gradient-accent) !important;
+  transform: scale(1.1);
+}
+
+.contact .php-email-form {
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email],
+.contact .php-email-form textarea {
+  border-radius: var(--radius-sm) !important;
+  padding: 14px 18px !important;
+  transition: var(--transition-smooth);
+  border: 2px solid color-mix(in srgb, var(--default-color), transparent 88%) !important;
+}
+
+.contact .php-email-form input[type=text]:focus,
+.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form textarea:focus {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1) !important;
+}
+
+.contact .php-email-form button[type=submit] {
+  background: var(--gradient-primary) !important;
+  padding: 14px 40px !important;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px !important;
+  transition: var(--transition-bounce) !important;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.35);
+  letter-spacing: 0.5px;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5) !important;
+  background: var(--gradient-primary) !important;
+}
+
+/* ============================================================
+   11. ENHANCED FOOTER
+   ============================================================ */
+.footer {
+  padding: 40px 0 30px 0 !important;
+  text-align: center;
+}
+
+.footer .footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer .footer-tagline {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer .footer-description {
+  font-size: 14px;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(102, 126, 234, 0.08);
+  color: #667eea;
+  margin: 0 5px;
+  font-size: 16px;
+  transition: var(--transition-bounce);
+}
+
+.footer .footer-social a:hover {
+  background: var(--gradient-primary);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.footer .footer-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-primary);
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+.footer .footer-copyright {
+  font-size: 13px;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+}
+
+.footer .footer-copyright a {
+  color: #667eea;
+  font-weight: 500;
+}
+
+/* ============================================================
+   12. ENHANCED SCROLL TOP BUTTON
+   ============================================================ */
+.scroll-top {
+  background: var(--gradient-primary) !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.35);
+  transition: var(--transition-bounce) !important;
+}
+
+.scroll-top:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5) !important;
+  background: var(--gradient-primary) !important;
+}
+
+/* ============================================================
+   13. ENHANCED PRELOADER
+   ============================================================ */
+#preloader::before {
+  border-color: #667eea transparent #764ba2 transparent !important;
+  width: 50px !important;
+  height: 50px !important;
+}
+
+/* ============================================================
+   14. SECTION TRANSITION POLISH
+   ============================================================ */
+.light-background {
+  --background-color: #f8faff;
+}
+
+section {
+  position: relative;
+}
+
+/* Subtle top/bottom glow on alternating sections */
+.light-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0.3;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   16. MOBILE RESPONSIVE POLISH
+   ============================================================ */
+@media (max-width: 1199px) {
+  .header.header-show {
+    box-shadow: 4px 0 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title h2 {
+    font-size: 28px !important;
+  }
+  
+  .resume .resume-title {
+    font-size: 20px !important;
+  }
+  
+  .contact .info-item {
+    padding: 16px;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ============================================================
+   17. ANIMATED GRADIENT LINE UNDER TYPED TEXT
+   ============================================================ */
+.typed-cursor {
+  color: #667eea !important;
+}
+
+/* ============================================================
+   18. HEADER TOGGLE BUTTON (MOBILE)
+   ============================================================ */
+.header .header-toggle {
+  background: var(--gradient-primary) !important;
+  box-shadow: 0 2px 15px rgba(102, 126, 234, 0.3);
+  transition: var(--transition-bounce) !important;
+}
+
+.header .header-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5) !important;
+}

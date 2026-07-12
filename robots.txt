@@ -1,0 +1,17 @@
+# Moawya Nafash Portfolio - Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://moawya-nafash.github.io/Portfolio-moawya/sitemap.xml
+
+# Allow all crawlers to index all content
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block access to vendor/internal files
+Disallow: /.vscode/
+Disallow: /.idea/

@@ -1,0 +1,70 @@
+/*--------------------------------------------------------------
+# Mobile & Tablet Visual Polish (Beautification)
+--------------------------------------------------------------*/
+@media (max-width: 991px) {
+
+    /* Reduce excessive whitespace on smaller screens */
+    section,
+    .section {
+        padding: 40px 0;
+    }
+
+    /* Typography Adjustments */
+    .section-title h2 {
+        font-size: 28px;
+        padding-bottom: 15px;
+    }
+
+    .section-title p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    /* Hero Section Polish */
+    .home {
+        padding: 60px 0;
+        /* Center content better */
+    }
+
+    .home h2 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .home p {
+        font-size: 18px;
+    }
+
+    /* About List Spacing */
+    .about .content ul li {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    /* Resume Item Compactness */
+    .resume .resume-title {
+        font-size: 22px;
+        margin-top: 30px;
+    }
+
+    .resume .resume-item {
+        padding-bottom: 15px;
+    }
+
+    .resume .resume-item h4 {
+        font-size: 16px;
+    }
+
+    /* Stats Section */
+    .stats .stats-item {
+        padding: 20px;
+    }
+
+    .stats .stats-item i {
+        font-size: 38px;
+    }
+
+    .stats .stats-item .purecounter {
+        font-size: 36px;
+    }
+}
